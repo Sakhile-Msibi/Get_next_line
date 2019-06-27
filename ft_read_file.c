@@ -6,7 +6,7 @@
 /*   By: smsibi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/27 09:04:01 by smsibi            #+#    #+#             */
-/*   Updated: 2019/06/27 09:16:06 by smsibi           ###   ########.fr       */
+/*   Updated: 2019/06/27 09:20:13 by smsibi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ int		ft_read_file(char **paragraph, char **line, char *page, const int fd)
 		if (check_newline(paragraph, line))
 			break ;
 	}
-	return (RET_VALUE);
+	return (RET_VALUE(ret));
 }
