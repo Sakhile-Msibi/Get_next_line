@@ -6,9 +6,12 @@
 /*   By: smsibi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/27 09:34:33 by smsibi            #+#    #+#             */
-/*   Updated: 2019/06/27 14:01:02 by smsibi           ###   ########.fr       */
+/*   Updated: 2019/06/28 06:47:10 by smsibi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
+#include "Get_next_line.h"
 
 static int	ft_check_newline(char **paragraph, char **line)
 {
@@ -47,7 +50,7 @@ static int	ft_read_file(char **paragraph, char **line, char *page, const int fd)
         }
         else
             *paragraph = ft_strdup(page);
-        if (check_newline(paragraph, line))
+        if (ft_check_newline(paragraph, line))
             break ;
     }
     return (RET_VALUE(ret));
@@ -64,12 +67,12 @@ int			get_next_line(const int fd, char **line)
 			|| !(page = (char *)malloc(sizeof(char) * BUFF_SIZE)))
 		return (-1);
 	if (paragraph[fd])
-		if (ft_check_newlin(&paragraph[fd], line))
+		if (ft_check_newline(&paragraph[fd], line))
 			return (1);
 	i = 0;
 	while (i < BUFF_SIZE)
 		page[i++] = '\0';
-	ret = ft_read_file(fd, page, &paragraph[fd], line);
+	ret = ft_read_file(&paragraph[fd], line, page , fd);
 	free(page);
 	if (ret != 0 || paragraph[fd] == NULL || paragraph[fd][0] == '\0')
 	{
