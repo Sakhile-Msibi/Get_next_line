@@ -18,7 +18,7 @@ Technologies are used in this project are C programming language and vim as a te
 To run this project, install it locally
 ```
 $ git clone https://github.com/Sakhile-Msibi/Get_next_line
-$ cd libft
+$ cd Get_next_line
 $ make
 ```
 
